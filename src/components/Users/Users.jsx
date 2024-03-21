@@ -3,7 +3,7 @@ import User from "../User/User";
 
 const Users = () => {
     const userData = useLoaderData();
-    console.log(userData);
+    // console.log(userData);
     return (
         <div>
             <h3>Users: {userData.length}</h3>
