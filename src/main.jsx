@@ -1,29 +1,42 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import App from './App.jsx'
 import './index.css'
-import {
-  createBrowserRouter,
-  RouterProvider
-} from 'react-router-dom'
+import NotFound from './components/NotFound/NotFound';
+
+import Contact from './components/Contact/Contact';
+import {  createBrowserRouter,  RouterProvider} from 'react-router-dom'
+import Home from './components/Home/Home';
+import About from './components/About/About';
+import './App.css'
+import Users from './components/Users/Users';
+
+
 
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <div>hello</div>
+    element: <Home/>,
+    children:[
+      {
+        path: '/about',
+        element: <About />
+      },
+      {
+        path: '/contact',
+        element: <Contact/>
+      },
+      {
+        path: '/users',
+        loader: ()=> fetch('https://jsonplaceholder.typicode.com/users'),
+        element: <Users />
+      },
+      {
+        path: '*',
+        element: <NotFound />
+      },
+    ],
   },
-  {
-    path: '/about',
-    element: <div>about</div>
-  },
-  {
-    path: '/contact',
-    element: <div>contact</div>
-  },
-  {
-    path: '*',
-    element: <div>404 not found.</div>
-  }
+  
 ])
 
 ReactDOM.createRoot(document.getElementById('root')).render(
