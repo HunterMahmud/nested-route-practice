@@ -11,6 +11,8 @@ const User = ({user}) => {
            <p>Website: {user.website}</p>
          </div>
            <Link to={`/users/${user.id}`}>Show Details</Link>
+           <Link to={`/users/${user.id}`}><button>Show Details</button></Link>
+           
         </div>
     );
 };
