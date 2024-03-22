@@ -13,6 +13,7 @@ const router = createBrowserRouter([
     {
       path: "/",
       element: <Home></Home>,
+      errorElement: <NotFound/>,
       children: [
         {
           path: "/about",
@@ -45,10 +46,6 @@ const router = createBrowserRouter([
         },
 
       ],
-    },
-    {
-      path: "*",
-      element: <NotFound />,
     },
   ]);
 
